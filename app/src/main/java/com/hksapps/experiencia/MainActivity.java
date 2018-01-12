@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
@@ -20,21 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
     private BluetoothSPP bt;
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (!bt.isBluetoothEnabled()) {
-            // Do somthing if bluetooth is disable
-            bt.enable();
-            //   bt.autoConnect("Experiencia");
-            //   connectToBluetooth();
-        } else {
-            // Do something if bluetooth is already enable
-            // connectToBluetooth();
-
-
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +29,30 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        bt = new BluetoothSPP(this);
+        TextView txt = (TextView) findViewById(R.id.txt);
 
-     //   connectToBluetooth();
+        txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                bt.send("r",true);
+
+            }
+        });
+
+
+         bt = new BluetoothSPP(this);
+
+        connectToBluetooth();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(MainActivity.this,(bt.getConnectedDeviceAddress()) , Toast.LENGTH_SHORT).show();
+
+                bt.send("R",true);
+
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -58,54 +60,78 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void connectToBluetooth() {
 
-        bt.startService(BluetoothState.DEVICE_OTHER);
-
-        //  Toast.makeText(this, bt.getConnectedDeviceName().toString(), Toast.LENGTH_SHORT).show();
-
-        String[] arr = bt.getPairedDeviceName();
-
-        for (int i = 0; i < arr.length; i++) {
-
-            Toast.makeText(this, arr[i], Toast.LENGTH_SHORT).show();
-
+    public void onStart() {
+        super.onStart();
+        if(!bt.isBluetoothEnabled()) {
+            bt.enable();
+            bt.autoConnect("Experiencia");
+            // Do somthing if bluetooth is disable
+        } else {
+            // Do something if bluetooth is already enable2
         }
-
-        //  bt.autoConnect("Experiencia");
-
-      /*  if(bt.getPairedDeviceName().equals("Experiencia")){
-
-
-
-        }else {
-
-bt.connect("Experiencia");*/
-
-//            Toast.makeText(this, "12345"+bt.getConnectedDeviceName().toString(), Toast.LENGTH_SHORT).show();
-
-        Intent intent = new Intent(getApplicationContext(), DeviceList.class);
-        startActivityForResult(intent, BluetoothState.REQUEST_CONNECT_DEVICE);
-
-        /*}*/
-
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == BluetoothState.REQUEST_CONNECT_DEVICE) {
-            if (resultCode == Activity.RESULT_OK) {
-                bt.connect(data);
-            }
-        } else if (requestCode == BluetoothState.REQUEST_ENABLE_BT) {
-            if (resultCode == Activity.RESULT_OK) {
+        if(requestCode == BluetoothState.REQUEST_CONNECT_DEVICE) {
+            if(resultCode == Activity.RESULT_OK)
+
+            bt.connect(data);
+        } else if(requestCode == BluetoothState.REQUEST_ENABLE_BT) {
+            if(resultCode == Activity.RESULT_OK) {
                 bt.setupService();
                 bt.startService(BluetoothState.DEVICE_OTHER);
-                //setup();
+               // setup();
             } else {
                 // Do something if user doesn't choose any device (Pressed back)
             }
         }
     }
+
+    private void connectToBluetooth() {
+
+       // Intent intent = new Intent(getApplicationContext(), DeviceList.class);
+        //startActivityForResult(intent, BluetoothState.REQUEST_CONNECT_DEVICE);
+
+        bt.setupService();
+        bt.startService(BluetoothState.DEVICE_OTHER);
+
+        Intent intent = new Intent(getApplicationContext(), DeviceList.class);
+        startActivityForResult(intent, BluetoothState.REQUEST_CONNECT_DEVICE);
+
+      //  bt.connect("20:16:04:07:55:73");
+
+     /*   bt.setupService();
+
+        bt.startService(BluetoothState.DEVICE_OTHER);
+      //  setup();
+       // bt.autoConnect("Experiencia");
+
+        Toast.makeText(this,String.valueOf(bt.isAutoConnecting()) , Toast.LENGTH_SHORT).show();
+
+
+        //if(!bt.isAutoConnecting()) {
+
+    //Toast.makeText(this,(bt.getConnectedDeviceName()) , Toast.LENGTH_SHORT).show();
+
+    bt.connect("20:16:04:07:55:73");
+
+        Toast.makeText(this,(bt.getConnectedDeviceAddress()) , Toast.LENGTH_SHORT).show();
+
+
+//}
+        String[] arr = bt.getPairedDeviceAddress();
+        String[] arr2 = bt.getPairedDeviceName();
+
+
+        for(int i=0;i<arr.length;i++) {
+
+            Log.d("Mac Address : ",arr[i]);
+            Log.d("Name  : ",arr2[i]);
+           // Toast.makeText(this, arr[i], Toast.LENGTH_SHORT).show();
+        }
+     */   }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
