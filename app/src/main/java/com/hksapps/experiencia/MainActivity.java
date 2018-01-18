@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        fab.setVisibility(View.GONE);
     }
 
     @Override
