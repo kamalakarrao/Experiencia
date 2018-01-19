@@ -33,7 +33,7 @@
             android:text="Have an Experiencia Box ?"
             android:fontFamily="casual"
             android:textStyle="bold"
-            android:textSize="16dp"/>
+            android:textSize="16sp"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -41,6 +41,7 @@
             android:text="Set it up"
             android:layout_marginTop="8dp"
             android:textColor="#FFFFFF"
+            android:id="@+id/setup"
             android:background="@android:color/holo_blue_light"/>
 
 <LinearLayout
@@ -56,7 +57,7 @@
             android:text="Don't have an Experiencia Box?"
             android:fontFamily="casual"
             android:textStyle="italic"
-            android:textSize="14dp"/>
+            android:textSize="14sp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,7 +66,7 @@
         android:text="Explore Experiencia"
         android:fontFamily="casual"
         android:textStyle="italic"
-        android:textSize="14dp"/>
+        android:textSize="14sp"/>
 
 </LinearLayout>
 
