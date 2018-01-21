@@ -3,11 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.hksapps.experiencia.MainActivity"
-    >
+    tools:context="com.hksapps.experiencia.MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -19,38 +18,68 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="12dp"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_margin="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textColor="#000000"
             android:text="Connect your device"
-            android:fontFamily="casual"
-            android:textStyle="bold"
-            android:textSize="16sp"/>
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Tap your device name when it appears in the list below"
+            android:textSize="12sp"
+             />
 
 
-<TextView
-    android:layout_marginTop="20dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textSize="16sp"
-    android:visibility="gone"
-    android:id="@+id/ble_name"
-    android:text="Name"/>
+        <TextView
+            android:id="@+id/ble_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Name"
 
-        <Button
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#BEBEBE"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="6dp"
+        android:layout_weight="0.2"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textAllCaps="true"
+            android:text="I Don't See my Experiencia " />
+
+        <ImageView
+            android:id="@+id/refresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Refresh"
-            android:id="@+id/refresh"/>
-
+            android:gravity="bottom"
+            android:src="@drawable/ic_refresh_black_24dp" />
 
 
     </LinearLayout>

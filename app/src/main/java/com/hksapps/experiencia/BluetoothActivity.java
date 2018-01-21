@@ -10,20 +10,22 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
+import app.akexorcist.bluetotohspp.library.BluetoothState;
 
 public class BluetoothActivity extends AppCompatActivity {
 
     private BluetoothSPP bt;
-    private String Mac=null;
+    private String Mac = null;
     BluetoothAdapter mBluetoothAdapter;
     private final static int REQUEST_ENABLE_BT = 1;
 
-   private TextView ble_name;
+    private TextView ble_name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,18 +44,18 @@ public class BluetoothActivity extends AppCompatActivity {
         }
         mBluetoothAdapter.startDiscovery();
 
-        Button btn = (Button) findViewById(R.id.refresh);
+        ImageView btn = (ImageView) findViewById(R.id.refresh);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-        registerAndShowBluetooth();
+                ble_name.setVisibility(View.GONE);
 
-                Log.i("Dude!","Refresh is done");
+                registerAndShowBluetooth();
+
+                Log.i("Dude!", "Refresh is done");
             }
         });
-
-
 
 
         if (!mBluetoothAdapter.isEnabled()) {
@@ -70,31 +72,55 @@ public class BluetoothActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-if(Mac!=null){
+                if (Mac != null) {
+                    bt.setupService();
+                    bt.startService(BluetoothState.DEVICE_OTHER);
+                    bt.connect(Mac);
+                }
 
-}
             }
         });
+
+
+        bt.setBluetoothConnectionListener(new BluetoothSPP.BluetoothConnectionListener() {
+            public void onDeviceConnected(String name, String address) {
+                // Do something when successfully connected
+                if(name.equalsIgnoreCase("Experiencia")&&address.equalsIgnoreCase(Mac)){
+
+                    Toast.makeText(BluetoothActivity.this, "Connected ", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            public void onDeviceDisconnected() {
+                // Do something when connection was disconnected
+            }
+
+            public void onDeviceConnectionFailed() {
+                // Do something when connection failed
+            }
+        });
+
     }
 
     @Override
     public void onDestroy() {
         // TODO Auto-generated method stub
 
-        try{
-            if(mReceiver!=null)
+        try {
+            if (mReceiver != null)
                 unregisterReceiver(mReceiver);
-        }catch(Exception e)
-        {
+        } catch (Exception e) {
 
         }
         super.onDestroy();
 
     }
+
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
 
-            Log.i("Inside","receiver");
+            Log.i("Inside", "receiver");
             String action = intent.getAction();
             if (BluetoothDevice.ACTION_FOUND.equals(action)) {
                 // A Bluetooth device was found
@@ -102,12 +128,12 @@ if(Mac!=null){
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 Toast.makeText(context, "Device found: " + device.getName() + " MAC " + device.getAddress(), Toast.LENGTH_SHORT).show();
                 Log.i("B_activity", "Device found: " + device.getName() + "; MAC " + device.getAddress());
-            if(device.getName().equalsIgnoreCase("Experiencia")){
+                if (device.getName().equalsIgnoreCase("Experiencia")) {
 
-                ble_name.setText(device.getName());
-                ble_name.setVisibility(View.VISIBLE);
-                Mac = device.getAddress();
-            }
+                    ble_name.setText(device.getName());
+                    ble_name.setVisibility(View.VISIBLE);
+                    Mac = device.getAddress();
+                }
 
             }
         }
@@ -115,7 +141,7 @@ if(Mac!=null){
     };
 
 
-    private void registerAndShowBluetooth(){
+    private void registerAndShowBluetooth() {
 
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
         registerReceiver(mReceiver, filter);
