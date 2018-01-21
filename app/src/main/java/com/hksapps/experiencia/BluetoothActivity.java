@@ -89,6 +89,8 @@ public class BluetoothActivity extends AppCompatActivity {
 
                     Toast.makeText(BluetoothActivity.this, "Connected ", Toast.LENGTH_SHORT).show();
 
+                    Intent i = new Intent(BluetoothActivity.this,ExperienciaActivity.class);
+                    startActivity(i);
                 }
             }
 
