@@ -2,6 +2,7 @@ package com.hksapps.experiencia;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -39,10 +40,10 @@ public class ExperienciaActivity extends AppCompatActivity {
 
 
 
-        LinearLayout rain_layout = (LinearLayout) findViewById(R.id.rain_layout);
-        LinearLayout cloud_layout = (LinearLayout) findViewById(R.id.cloud_layout);
-        LinearLayout sunshine_layout = (LinearLayout) findViewById(R.id.sunshine_layout);
-        LinearLayout lightning_layout = (LinearLayout) findViewById(R.id.lightning_layout);
+        final LinearLayout rain_layout = (LinearLayout) findViewById(R.id.rain_layout);
+        final LinearLayout cloud_layout = (LinearLayout) findViewById(R.id.cloud_layout);
+        final LinearLayout sunshine_layout = (LinearLayout) findViewById(R.id.sunshine_layout);
+        final LinearLayout lightning_layout = (LinearLayout) findViewById(R.id.lightning_layout);
 
          final Switch rain_switch = (Switch) findViewById(R.id.rain_switch);
         final Switch cloud_switch = (Switch) findViewById(R.id.cloud_switch);
@@ -68,11 +69,17 @@ public class ExperienciaActivity extends AppCompatActivity {
              
                 if(rain_switch.isChecked()){
 
+                    rain_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+
                     rain_switch.setChecked(false);
                     rain_img.setImageResource(R.drawable.rainoff);
                     BleService.bt.send("r",true);
 
                 }else {
+                    rain_layout.setBackgroundColor(Color.parseColor("#607D8B"));
+                    lightning_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                    sunshine_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                    cloud_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
 
                     rain_switch.setChecked(true);
                     rain_img.setImageResource(R.drawable.rainon);
@@ -89,11 +96,19 @@ public class ExperienciaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(cloud_switch.isChecked()){
 
+                    cloud_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+
                     cloud_switch.setChecked(false);
                     cloud_img.setImageResource(R.drawable.cloudoff);
                     BleService.bt.send("c",false);
 
                 }else {
+
+
+                    cloud_layout.setBackgroundColor(Color.parseColor("#607D8B"));
+                    rain_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                    sunshine_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                    lightning_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
 
                     cloud_switch.setChecked(true);
                     cloud_img.setImageResource(R.drawable.cloudon);
@@ -109,11 +124,18 @@ public class ExperienciaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(sunshine_switch.isChecked()){
 
+                    sunshine_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+
                     sunshine_switch.setChecked(false);
                     sunshine_img.setImageResource(R.drawable.sunshineoff);
                     BleService.bt.send("s",false);
 
                 }else {
+
+                    sunshine_layout.setBackgroundColor(Color.parseColor("#607D8B"));
+                    rain_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                    lightning_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                    cloud_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
 
                     sunshine_switch.setChecked(true);
                     sunshine_img.setImageResource(R.drawable.sunshineon);
@@ -131,11 +153,18 @@ public class ExperienciaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(lightning_switch.isChecked()){
 
+                    lightning_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+
                     lightning_switch.setChecked(false);
                     lightning_img.setImageResource(R.drawable.lightningoff);
                     BleService.bt.send("l",false);
 
                 }else {
+
+                    lightning_layout.setBackgroundColor(Color.parseColor("#607D8B"));
+                    rain_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                    sunshine_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                    cloud_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
 
                     lightning_switch.setChecked(true);
                     lightning_img.setImageResource(R.drawable.lightningon);

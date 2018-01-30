@@ -3,4 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#BEBEBE</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="clickedcolor">#607D8B</color>
+    <color name="normalcolor">#90A4AE</color>
 </resources>
