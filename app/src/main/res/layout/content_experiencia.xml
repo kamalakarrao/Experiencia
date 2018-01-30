@@ -4,11 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <ScrollView
-        android:id="@+id/scrollview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/linearlayoutmain"
@@ -24,7 +19,9 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/rain_layout"
                 android:background="#ff6e74"
                 android:gravity="center">
 
@@ -38,17 +35,14 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="8dp"
+                        android:padding="25dp"
+
+                        android:id="@+id/rain_img"
                         android:src="@drawable/rainoff" />
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="22dp"
-                    android:layout_marginTop="22dp"
-                    android:background="#ffffff" />
+
 
 
                 <LinearLayout
@@ -59,40 +53,40 @@
                     android:orientation="vertical">
 
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal">
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="22dp"
-                        android:layout_marginRight="22dp"
-                        android:background="#ffffff" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
                         android:layout_height="wrap_content"
                         android:layout_margin="12dp"
                         android:fontFamily="sans-serif-smallcaps"
                         android:text="Rain"
-
+                        android:gravity="center"
                         android:textColor="#ffffff"
 
 
                         android:textSize="34sp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="22dp"
-                        android:layout_marginRight="22dp"
-                        android:background="#ffffff" />
+    <Switch
+        android:id="@+id/rain_switch"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF" />
 
-                    <Switch
-                        android:id="@+id/rain_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="34dp"
-                        android:layout_margin="22dp"
-                        android:text="Experience the rain"
-                        android:textAllCaps="false"
-                        android:textColor="#FFFFFF" />
+
+</LinearLayout>
+
+
+
+
+
 
                 </LinearLayout>
 
@@ -116,7 +110,9 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/cloud_layout"
                 android:background="#00897B"
                 android:gravity="center">
 
@@ -130,17 +126,13 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="8dp"
+                        android:padding="25dp"
+                        android:id="@+id/cloud_img"
                         android:src="@drawable/cloudon" />
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="22dp"
-                    android:layout_marginTop="22dp"
-                    android:background="#ffffff" />
+
 
 
                 <LinearLayout
@@ -151,40 +143,38 @@
                     android:orientation="vertical">
 
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="22dp"
-                        android:layout_marginRight="22dp"
-                        android:background="#ffffff" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="12dp"
-                        android:fontFamily="sans-serif-smallcaps"
-                        android:text="Clouds"
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
-                        android:textColor="#ffffff"
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="3"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="12dp"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:text="Clouds"
+android:gravity="center"
+                            android:textColor="#ffffff"
 
 
-                        android:textSize="34sp" />
+                            android:textSize="34sp" />
+                        <Switch
+                            android:id="@+id/cloud_switch"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="12dp"
+                            android:textAllCaps="false"
+                            android:textColor="#FFFFFF" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="22dp"
-                        android:layout_marginRight="22dp"
-                        android:background="#ffffff" />
 
-                    <Switch
-                        android:id="@+id/cloud_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="34dp"
-                        android:layout_margin="22dp"
-                        android:text="Experience the fog"
-                        android:textAllCaps="false"
-                        android:textColor="#FFFFFF" />
+
+
 
 
                 </LinearLayout>
@@ -208,7 +198,9 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/sunshine_layout"
                 android:background="#1E88E5"
                 android:gravity="center">
 
@@ -222,17 +214,13 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="8dp"
+                        android:padding="25dp"
+                        android:id="@+id/sunshine_img"
                         android:src="@drawable/sunshineon" />
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="22dp"
-                    android:layout_marginTop="22dp"
-                    android:background="#ffffff" />
+
 
 
                 <LinearLayout
@@ -243,37 +231,39 @@
                     android:orientation="vertical">
 
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="22dp"
-                        android:layout_marginRight="22dp"
-                        android:background="#ffffff" />
-
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
                         android:layout_height="wrap_content"
                         android:layout_margin="12dp"
                         android:fontFamily="sans-serif-smallcaps"
                         android:text="Sunshine"
+                        android:gravity="center"
                         android:textColor="#ffffff"
                         android:textSize="34sp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="22dp"
-                        android:layout_marginRight="22dp"
-                        android:background="#ffffff" />
 
-                    <Switch
-                        android:id="@+id/sunshine_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="34dp"
-                        android:layout_margin="22dp"
-                        android:text="Experience the sunshine"
-                        android:textAllCaps="false"
-                        android:textColor="#FFFFFF" />
+                        <Switch
+                            android:id="@+id/sunshine_switch"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="12dp"
+                            android:textAllCaps="false"
+                            android:textColor="#FFFFFF" />
+
+
+                    </LinearLayout>
+
+
+
+
+
 
 
                 </LinearLayout>
@@ -291,7 +281,9 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:id="@+id/lightning_layout"
                 android:background="#ff6e74"
                 android:gravity="center">
 
@@ -305,17 +297,12 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="8dp"
+                        android:padding="25dp"
+                        android:id="@+id/lightning_img"
                         android:src="@drawable/lightningon" />
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="22dp"
-                    android:layout_marginTop="22dp"
-                    android:background="#ffffff" />
 
 
                 <LinearLayout
@@ -326,37 +313,38 @@
                     android:orientation="vertical">
 
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="22dp"
-                        android:layout_marginRight="22dp"
-                        android:background="#ffffff" />
 
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="3"
                         android:layout_height="wrap_content"
                         android:layout_margin="12dp"
                         android:fontFamily="sans-serif-smallcaps"
                         android:text="Lightning"
+                        android:gravity="center"
                         android:textColor="#ffffff"
                         android:textSize="34sp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="22dp"
-                        android:layout_marginRight="22dp"
-                        android:background="#ffffff" />
 
-                    <Switch
-                        android:id="@+id/lightning_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="34dp"
-                        android:layout_margin="22dp"
-                        android:text="Experience the lightning"
-                        android:textAllCaps="false"
-                        android:textColor="#FFFFFF" />
+                        <Switch
+                            android:id="@+id/lightning_switch"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="12dp"
+                            android:textAllCaps="false"
+                            android:textColor="#FFFFFF" />
+
+
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
 
@@ -367,5 +355,4 @@
         </LinearLayout>
 
 
-    </ScrollView>
 </LinearLayout>
