@@ -29,6 +29,14 @@ public class ExperienciaActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);*/
 
 
+        bt = new BluetoothSPP(this);
+
+
+        bt.setupService();
+        bt.startService(BluetoothState.DEVICE_OTHER);
+
+
+
         LinearLayout rain_layout = (LinearLayout) findViewById(R.id.rain_layout);
         LinearLayout cloud_layout = (LinearLayout) findViewById(R.id.cloud_layout);
         LinearLayout sunshine_layout = (LinearLayout) findViewById(R.id.sunshine_layout);
@@ -54,6 +62,8 @@ public class ExperienciaActivity extends AppCompatActivity {
         rain_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+             
                 if(rain_switch.isChecked()){
 
                     rain_switch.setChecked(false);
@@ -145,11 +155,7 @@ public class ExperienciaActivity extends AppCompatActivity {
             }
         });
 
-        bt = new BluetoothSPP(this);
 
-
-        bt.setupService();
-        bt.startService(BluetoothState.DEVICE_OTHER);
 
 
         String[] arr = bt.getPairedDeviceName();
