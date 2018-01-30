@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -34,6 +33,9 @@ public class ExperienciaActivity extends AppCompatActivity {
 
         bt.setupService();
         bt.startService(BluetoothState.DEVICE_OTHER);
+      // bt.connect(BleService.Mac);
+
+        Toast.makeText(this, "MacID"+ BleService.Mac, Toast.LENGTH_SHORT).show();
 
 
 
@@ -68,13 +70,13 @@ public class ExperienciaActivity extends AppCompatActivity {
 
                     rain_switch.setChecked(false);
                     rain_img.setImageResource(R.drawable.rainoff);
-                    bt.send("r",false);
+                    BleService.bt.send("r",true);
 
                 }else {
 
                     rain_switch.setChecked(true);
                     rain_img.setImageResource(R.drawable.rainon);
-                    bt.send("R",false);
+                    BleService.bt.send("R",true);
 
                 }
             }
@@ -89,13 +91,13 @@ public class ExperienciaActivity extends AppCompatActivity {
 
                     cloud_switch.setChecked(false);
                     cloud_img.setImageResource(R.drawable.cloudoff);
-                    bt.send("c",false);
+                    BleService.bt.send("c",false);
 
                 }else {
 
                     cloud_switch.setChecked(true);
                     cloud_img.setImageResource(R.drawable.cloudon);
-                    bt.send("C",false);
+                    BleService.bt.send("C",false);
 
                 }
             }
@@ -109,13 +111,13 @@ public class ExperienciaActivity extends AppCompatActivity {
 
                     sunshine_switch.setChecked(false);
                     sunshine_img.setImageResource(R.drawable.sunshineoff);
-                    bt.send("s",false);
+                    BleService.bt.send("s",false);
 
                 }else {
 
                     sunshine_switch.setChecked(true);
                     sunshine_img.setImageResource(R.drawable.sunshineon);
-                    bt.send("S",false);
+                    BleService.bt.send("S",false);
 
                 }
             }
@@ -131,13 +133,13 @@ public class ExperienciaActivity extends AppCompatActivity {
 
                     lightning_switch.setChecked(false);
                     lightning_img.setImageResource(R.drawable.lightningoff);
-                    bt.send("l",false);
+                    BleService.bt.send("l",false);
 
                 }else {
 
                     lightning_switch.setChecked(true);
                     lightning_img.setImageResource(R.drawable.lightningon);
-                    bt.send("L",false);
+                    BleService.bt.send("L",false);
 
                 }
             }

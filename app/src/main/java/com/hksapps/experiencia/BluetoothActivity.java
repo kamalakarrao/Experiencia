@@ -22,7 +22,7 @@ public class BluetoothActivity extends AppCompatActivity {
     public String Mac = null;
     BluetoothAdapter mBluetoothAdapter;
     public final static int REQUEST_ENABLE_BT = 1;
-    BluetoothService bluetoothService;
+    BleService bluetoothService;
     private TextView ble_name;
     public static Context context;
 
@@ -36,7 +36,7 @@ public class BluetoothActivity extends AppCompatActivity {
 
         ble_name = (TextView) findViewById(R.id.ble_name);
 
-        bluetoothService = new BluetoothService();
+        bluetoothService = new BleService();
 
 
         // Get an instance of the BluetoothAdapter class
@@ -80,7 +80,7 @@ public class BluetoothActivity extends AppCompatActivity {
 //                    bt.startService(BluetoothState.DEVICE_OTHER);
 //                    bt.connect(Mac);
                     Log.e("onclick","on experencia");
-                    startService(new Intent(BluetoothActivity.this, BluetoothService.class));
+                    startService(new Intent(BluetoothActivity.this, BleService.class));
                 }
 
             }
@@ -142,7 +142,7 @@ public class BluetoothActivity extends AppCompatActivity {
                     ble_name.setText(device.getName());
                     ble_name.setVisibility(View.VISIBLE);
                     Mac = device.getAddress();
-                    BluetoothService.Mac = device.getAddress();
+                    BleService.Mac = device.getAddress();
                 }
 
             }

@@ -37,7 +37,7 @@
 
         </activity>
 
-        <service android:name=".BluetoothService"></service>
+        <service android:name=".BleService"></service>
     </application>
 
 </manifest>

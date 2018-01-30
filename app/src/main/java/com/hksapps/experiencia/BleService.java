@@ -13,12 +13,17 @@ import app.akexorcist.bluetotohspp.library.BluetoothState;
  * Created by Pranav on 21-01-2018.
  */
 
-public class BluetoothService extends Service {
+public class BleService extends Service {
     public static BluetoothSPP bt;
     public static String Mac = null;
     BluetoothAdapter mBluetoothAdapter;
     public final static int REQUEST_ENABLE_BT = 1;
-    public BluetoothService() {
+    public BleService() {
+
+        bt = new BluetoothSPP(this);
+
+        bt.setupService();
+        bt.startService(BluetoothState.DEVICE_OTHER);
     }
 
     @Override
@@ -28,20 +33,20 @@ public class BluetoothService extends Service {
 
     @Override
     public void onCreate() {
-        bt = new BluetoothSPP(this);
 
         Toast.makeText(this, "The new Service was Created", Toast.LENGTH_LONG).show();
 
     }
 
     @Override
-    public void onStart(Intent intent, int startId) {
-        // For time consuming an long tasks you can launch a new thread here...
-        // Do your Bluetooth Work Here
+    public int onStartCommand(Intent intent, int flags, int startId) {
+
+
+
+
         if (Mac != null) {
             Toast.makeText(this, "mac  idm found", Toast.LENGTH_SHORT).show();
-            bt.setupService();
-            bt.startService(BluetoothState.DEVICE_OTHER);
+
             bt.connect(Mac);
         }
         Toast.makeText(this, " Service Started", Toast.LENGTH_LONG).show();
@@ -55,6 +60,7 @@ public class BluetoothService extends Service {
                     Toast.makeText(BluetoothActivity.context, "Connected ", Toast.LENGTH_SHORT).show();
 
 
+                    // bt.send("C",true);
 
                     try {
                         Thread.sleep(2000);
@@ -62,10 +68,12 @@ public class BluetoothService extends Service {
                         e.printStackTrace();
                     }
 
-                    Intent i = new Intent(BluetoothService.this,ExperienciaActivity.class);
+                    bt.send("C",true);
+
+                    Intent i = new Intent(BleService.this,ExperienciaActivity.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(i);
-                  //  finish();
+                    //  finish();
                 }
             }
 
@@ -77,6 +85,19 @@ public class BluetoothService extends Service {
                 // Do something when connection failed
             }
         });
+
+
+
+        return START_STICKY;
+    }
+
+    @Override
+    public void onStart(Intent intent, int startId) {
+        // For time consuming an long tasks you can launch a new thread here...
+        // Do your Bluetooth Work Here
+
+
+
     }
 
     @Override
