@@ -15,25 +15,28 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
-import app.akexorcist.bluetotohspp.library.BluetoothState;
 
 public class BluetoothActivity extends AppCompatActivity {
 
-    private BluetoothSPP bt;
-    private String Mac = null;
+    public BluetoothSPP bt;
+    public String Mac = null;
     BluetoothAdapter mBluetoothAdapter;
-    private final static int REQUEST_ENABLE_BT = 1;
-
+    public final static int REQUEST_ENABLE_BT = 1;
+    BluetoothService bluetoothService;
     private TextView ble_name;
+    public static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bluetooth);
+        context = getApplicationContext();
 
         bt = new BluetoothSPP(this);
 
         ble_name = (TextView) findViewById(R.id.ble_name);
+
+        bluetoothService = new BluetoothService();
 
 
         // Get an instance of the BluetoothAdapter class
@@ -73,16 +76,18 @@ public class BluetoothActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (Mac != null) {
-                    bt.setupService();
-                    bt.startService(BluetoothState.DEVICE_OTHER);
-                    bt.connect(Mac);
+//                    bt.setupService();
+//                    bt.startService(BluetoothState.DEVICE_OTHER);
+//                    bt.connect(Mac);
+                    Log.e("onclick","on experencia");
+                    startService(new Intent(BluetoothActivity.this, BluetoothService.class));
                 }
 
             }
         });
 
 
-        bt.setBluetoothConnectionListener(new BluetoothSPP.BluetoothConnectionListener() {
+      /*  bt.setBluetoothConnectionListener(new BluetoothSPP.BluetoothConnectionListener() {
             public void onDeviceConnected(String name, String address) {
                 // Do something when successfully connected
                 if(name.equalsIgnoreCase("Experiencia")&&address.equalsIgnoreCase(Mac)){
@@ -90,7 +95,9 @@ public class BluetoothActivity extends AppCompatActivity {
                     Toast.makeText(BluetoothActivity.this, "Connected ", Toast.LENGTH_SHORT).show();
 
                     Intent i = new Intent(BluetoothActivity.this,ExperienciaActivity.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(i);
+                    finish();
                 }
             }
 
@@ -101,7 +108,7 @@ public class BluetoothActivity extends AppCompatActivity {
             public void onDeviceConnectionFailed() {
                 // Do something when connection failed
             }
-        });
+        });*/
 
     }
 
@@ -135,6 +142,7 @@ public class BluetoothActivity extends AppCompatActivity {
                     ble_name.setText(device.getName());
                     ble_name.setVisibility(View.VISIBLE);
                     Mac = device.getAddress();
+                    BluetoothService.Mac = device.getAddress();
                 }
 
             }

@@ -1,11 +1,371 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.hksapps.experiencia.ExperienciaActivity"
-    tools:showIn="@layout/activity_experiencia">
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linearlayoutmain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--Groceries-->
+            <!--Groceries-->
+            <!--Groceries-->
+            <!--Groceries-->
+            <!--Groceries-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="#ff6e74"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:src="@drawable/rainoff" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="22dp"
+                    android:layout_marginTop="22dp"
+                    android:background="#ffffff" />
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginRight="22dp"
+                        android:background="#ffffff" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Rain"
+
+                        android:textColor="#ffffff"
+
+
+                        android:textSize="34sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginRight="22dp"
+                        android:background="#ffffff" />
+
+                    <Switch
+                        android:id="@+id/rain_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp"
+                        android:layout_margin="22dp"
+                        android:text="Experience the rain"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <!--Groceries-->
+            <!--Groceries-->
+            <!--Groceries-->
+            <!--Groceries-->
+            <!--Groceries-->
+
+
+            <!--Medicines-->
+            <!--Medicines-->
+            <!--Medicines-->
+            <!--Medicines-->
+            <!--Medicines-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="#00897B"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:src="@drawable/cloudon" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="22dp"
+                    android:layout_marginTop="22dp"
+                    android:background="#ffffff" />
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginRight="22dp"
+                        android:background="#ffffff" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Clouds"
+
+                        android:textColor="#ffffff"
+
+
+                        android:textSize="34sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginRight="22dp"
+                        android:background="#ffffff" />
+
+                    <Switch
+                        android:id="@+id/cloud_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp"
+                        android:layout_margin="22dp"
+                        android:text="Experience the fog"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <!--Medicines-->
+            <!--Medicines-->
+            <!--Medicines-->
+            <!--Medicines-->
+            <!--Medicines-->
+
+            <!--Mall shopping-->
+            <!--Mall shopping-->
+            <!--Mall shopping-->
+            <!--Mall shopping-->
+            <!--Mall shopping-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="#1E88E5"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:src="@drawable/sunshineon" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="22dp"
+                    android:layout_marginTop="22dp"
+                    android:background="#ffffff" />
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginRight="22dp"
+                        android:background="#ffffff" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Sunshine"
+                        android:textColor="#ffffff"
+                        android:textSize="34sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginRight="22dp"
+                        android:background="#ffffff" />
+
+                    <Switch
+                        android:id="@+id/sunshine_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp"
+                        android:layout_margin="22dp"
+                        android:text="Experience the sunshine"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <!--Mall shopping-->
+            <!--Mall shopping-->
+            <!--Mall shopping-->
+            <!--Mall shopping-->
+            <!--Mall shopping-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="#ff6e74"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:src="@drawable/lightningon" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="22dp"
+                    android:layout_marginTop="22dp"
+                    android:background="#ffffff" />
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginRight="22dp"
+                        android:background="#ffffff" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:fontFamily="sans-serif-smallcaps"
+                        android:text="Lightning"
+                        android:textColor="#ffffff"
+                        android:textSize="34sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginRight="22dp"
+                        android:background="#ffffff" />
+
+                    <Switch
+                        android:id="@+id/lightning_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp"
+                        android:layout_margin="22dp"
+                        android:text="Experience the lightning"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</LinearLayout>
