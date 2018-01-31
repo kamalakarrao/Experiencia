@@ -77,9 +77,9 @@ public class ExperienciaActivity extends AppCompatActivity {
 
                 }else {
                     rain_layout.setBackgroundColor(Color.parseColor("#607D8B"));
-                    lightning_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
-                    sunshine_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
-                    cloud_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                  //  lightning_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                 //   sunshine_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                  //  cloud_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
 
                     rain_switch.setChecked(true);
                     rain_img.setImageResource(R.drawable.rainon);
@@ -106,9 +106,9 @@ public class ExperienciaActivity extends AppCompatActivity {
 
 
                     cloud_layout.setBackgroundColor(Color.parseColor("#607D8B"));
-                    rain_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
-                    sunshine_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
-                    lightning_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                 //   rain_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                 //   sunshine_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                  //  lightning_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
 
                     cloud_switch.setChecked(true);
                     cloud_img.setImageResource(R.drawable.cloudon);
@@ -133,9 +133,9 @@ public class ExperienciaActivity extends AppCompatActivity {
                 }else {
 
                     sunshine_layout.setBackgroundColor(Color.parseColor("#607D8B"));
-                    rain_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
-                    lightning_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
-                    cloud_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                 //   rain_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                  //  lightning_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                   // cloud_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
 
                     sunshine_switch.setChecked(true);
                     sunshine_img.setImageResource(R.drawable.sunshineon);
@@ -162,9 +162,9 @@ public class ExperienciaActivity extends AppCompatActivity {
                 }else {
 
                     lightning_layout.setBackgroundColor(Color.parseColor("#607D8B"));
-                    rain_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
-                    sunshine_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
-                    cloud_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                   // rain_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                   // sunshine_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
+                   // cloud_layout.setBackgroundColor(Color.parseColor("#90A4AE"));
 
                     lightning_switch.setChecked(true);
                     lightning_img.setImageResource(R.drawable.lightningon);
