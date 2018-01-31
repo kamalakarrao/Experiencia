@@ -24,6 +24,14 @@ public class BleService extends Service {
 
         bt.setupService();
         bt.startService(BluetoothState.DEVICE_OTHER);
+
+
+        if (Mac != null) {
+            Toast.makeText(this, "mac  idm found", Toast.LENGTH_SHORT).show();
+
+            bt.connect(Mac);
+        }
+        Toast.makeText(this, " Service Started", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -44,12 +52,6 @@ public class BleService extends Service {
 
 
 
-        if (Mac != null) {
-            Toast.makeText(this, "mac  idm found", Toast.LENGTH_SHORT).show();
-
-            bt.connect(Mac);
-        }
-        Toast.makeText(this, " Service Started", Toast.LENGTH_LONG).show();
 
 
         bt.setBluetoothConnectionListener(new BluetoothSPP.BluetoothConnectionListener() {

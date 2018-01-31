@@ -73,7 +73,7 @@ public class ExperienciaActivity extends AppCompatActivity {
 
                     rain_switch.setChecked(false);
                     rain_img.setImageResource(R.drawable.rainoff);
-                    BleService.bt.send("r",true);
+                   // BleService.bt.send("r",true);
 
                 }else {
                     rain_layout.setBackgroundColor(Color.parseColor("#607D8B"));
@@ -83,7 +83,7 @@ public class ExperienciaActivity extends AppCompatActivity {
 
                     rain_switch.setChecked(true);
                     rain_img.setImageResource(R.drawable.rainon);
-                    BleService.bt.send("R",true);
+                  //  BleService.bt.send("R",true);
 
                 }
             }
@@ -100,7 +100,7 @@ public class ExperienciaActivity extends AppCompatActivity {
 
                     cloud_switch.setChecked(false);
                     cloud_img.setImageResource(R.drawable.cloudoff);
-                    BleService.bt.send("c",false);
+                   // BleService.bt.send("c",false);
 
                 }else {
 
@@ -112,7 +112,7 @@ public class ExperienciaActivity extends AppCompatActivity {
 
                     cloud_switch.setChecked(true);
                     cloud_img.setImageResource(R.drawable.cloudon);
-                    BleService.bt.send("C",false);
+                   // BleService.bt.send("C",false);
 
                 }
             }
@@ -128,7 +128,7 @@ public class ExperienciaActivity extends AppCompatActivity {
 
                     sunshine_switch.setChecked(false);
                     sunshine_img.setImageResource(R.drawable.sunshineoff);
-                    BleService.bt.send("s",false);
+                 //   BleService.bt.send("s",false);
 
                 }else {
 
@@ -139,7 +139,7 @@ public class ExperienciaActivity extends AppCompatActivity {
 
                     sunshine_switch.setChecked(true);
                     sunshine_img.setImageResource(R.drawable.sunshineon);
-                    BleService.bt.send("S",false);
+                 //   BleService.bt.send("S",false);
 
                 }
             }
@@ -157,7 +157,7 @@ public class ExperienciaActivity extends AppCompatActivity {
 
                     lightning_switch.setChecked(false);
                     lightning_img.setImageResource(R.drawable.lightningoff);
-                    BleService.bt.send("l",false);
+                 //   BleService.bt.send("l",false);
 
                 }else {
 
@@ -168,7 +168,7 @@ public class ExperienciaActivity extends AppCompatActivity {
 
                     lightning_switch.setChecked(true);
                     lightning_img.setImageResource(R.drawable.lightningon);
-                    BleService.bt.send("L",false);
+                 //   BleService.bt.send("L",false);
 
                 }
             }
