@@ -29,6 +29,11 @@ public class ExperienciaActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);*/
 
 
+        /*Intent intent = new Intent("com.hksapps.broadcast");
+        //  intent.putExtra("yourvalue", "torestore");
+        sendBroadcast(intent);
+*/
+
         bt = new BluetoothSPP(this);
 
 

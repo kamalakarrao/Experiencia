@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.widget.Toast;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 import app.akexorcist.bluetotohspp.library.BluetoothState;
 
@@ -32,6 +35,9 @@ public class BleService extends Service {
             bt.connect(Mac);
         }
         Toast.makeText(this, " Service Started", Toast.LENGTH_LONG).show();
+
+
+
     }
 
     @Override
@@ -88,6 +94,15 @@ public class BleService extends Service {
             }
         });
 
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() { // Function runs every MINUTES minutes.
+                // Run the code you want here
+
+                Toast.makeText(BleService.this, "Service is running", Toast.LENGTH_SHORT).show();
+            }
+        }, 0, 10000  );
 
 
         return START_STICKY;

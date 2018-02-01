@@ -14,6 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import app.akexorcist.bluetotohspp.library.BluetoothSPP;
 
 public class BluetoothActivity extends AppCompatActivity {
@@ -89,6 +92,7 @@ public class BluetoothActivity extends AppCompatActivity {
 
             }
         });
+
 
 
       /*  bt.setBluetoothConnectionListener(new BluetoothSPP.BluetoothConnectionListener() {
