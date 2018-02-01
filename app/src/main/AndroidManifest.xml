@@ -38,6 +38,13 @@
         </activity>
 
         <service android:name=".BleService"></service>
+
+        <receiver android:name="ReceiverCall" >
+            <intent-filter>
+                <action android:name="com.hksapps.broadcast" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

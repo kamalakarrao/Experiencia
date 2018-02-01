@@ -80,7 +80,11 @@ public class BluetoothActivity extends AppCompatActivity {
 //                    bt.startService(BluetoothState.DEVICE_OTHER);
 //                    bt.connect(Mac);
                     Log.e("onclick","on experencia");
-                    startService(new Intent(BluetoothActivity.this, BleService.class));
+                    //startService(new Intent(BluetoothActivity.this, BleService.class));
+
+                    Intent intent = new Intent("com.hksapps.broadcast");
+                    //  intent.putExtra("yourvalue", "torestore");
+                    sendBroadcast(intent);
                 }
 
             }

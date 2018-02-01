@@ -106,6 +106,10 @@ public class BleService extends Service {
     public void onDestroy() {
         Toast.makeText(this, "Service Destroyed", Toast.LENGTH_LONG).show();
 
+        Intent intent = new Intent("com.hksapps.broadcast");
+      //  intent.putExtra("yourvalue", "torestore");
+        sendBroadcast(intent);
+
     }
 
 }
